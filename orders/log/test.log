@@ -1,0 +1,254 @@
+  [1m[35m (54.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "orders_test"[0m
+  [1m[35m (201.4ms)[0m  [1m[35mCREATE DATABASE "orders_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "amount" float, "status" character varying, "customer" jsonb DEFAULT '"{}"' NOT NULL, "order_detail" jsonb DEFAULT '"{}"' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_customer" ON "orders" USING gin ("customer")[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (24.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201120130724)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-11-21 09:48:03.961527"], ["updated_at", "2020-11-21 09:48:03.961527"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "a35d6e3e33e2842837b3902043feb048441e373e"], ["created_at", "2020-11-21 09:48:03.973893"], ["updated_at", "2020-11-21 09:48:03.973893"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (10.5ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:01:49.416677"], ["updated_at", "2020-11-21 10:01:49.416677"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders" for 127.0.0.1 at 2020-11-21 13:01:49 +0300
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+No serializer found for resource: #<Order id: 1, amount: 354.5, status: "Pending", customer: {"id"=>2, "name"=>"Marie Curie"}, order_detail: [{"id"=>34, "name"=>"Nike VaporFy", "price"=>344.55, "quantity"=>3}], created_at: "2020-11-21 10:01:49", updated_at: "2020-11-21 10:01:49">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Order::ActiveRecord_Relation (0.25ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 1.6ms | Allocations: 1287)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/orders" for 127.0.0.1 at 2020-11-21 13:05:39 +0300
+Processing by OrdersController#create as HTML
+  Parameters: {"order"=>{"status"=>"Pending", "amount"=>"345.45", "customer"=>{"id"=>"2", "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>"3545", "quantity"=>"3", "name"=>"Nike VaporFly", "price"=>"453.49"}}}
+[31mUnpermitted parameter: :order[0m
+Completed 422 Unprocessable Entity in 19ms (ActiveRecord: 6.8ms | Allocations: 6128)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:08:42.663165"], ["updated_at", "2020-11-21 10:08:42.663165"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders2" for 127.0.0.1 at 2020-11-21 13:08:42 +0300
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:09:00.568428"], ["updated_at", "2020-11-21 10:09:00.568428"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders/3" for 127.0.0.1 at 2020-11-21 13:09:00 +0300
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.94ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.7ms | Allocations: 1353)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:10:20.074145"], ["updated_at", "2020-11-21 10:10:20.074145"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders/4" for 127.0.0.1 at 2020-11-21 13:10:20 +0300
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (1.44ms)
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 1.5ms | Allocations: 1302)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:12:01.124816"], ["updated_at", "2020-11-21 10:12:01.124816"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders/5" for 127.0.0.1 at 2020-11-21 13:12:01 +0300
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.43ms)
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 2.0ms | Allocations: 1302)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:12:40.441713"], ["updated_at", "2020-11-21 10:12:40.441713"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders/6" for 127.0.0.1 at 2020-11-21 13:12:40 +0300
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.45ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1302)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/orders" for 127.0.0.1 at 2020-11-21 13:14:11 +0300
+Processing by OrdersController#create as HTML
+  Parameters: {"{\"order\":{\"status\":\"Pending\",\"amount\":345.45,\"customer\":{\"id\":2,\"name\":\"Mtu Muzito\"},\"order_detail\":{\"id\":3545,\"quantity\":3,\"name\":\"Nike VaporFly\",\"price\":453.49}}}"=>nil}
+[31mUnpermitted parameter: :{"order":{"status":"Pending","amount":345.45,"customer":{"id":2,"name":"Mtu Muzito"},"order_detail":{"id":3545,"quantity":3,"name":"Nike VaporFly","price":453.49}}}[0m
+Completed 422 Unprocessable Entity in 26ms (ActiveRecord: 5.4ms | Allocations: 6112)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/orders" for 127.0.0.1 at 2020-11-21 13:43:46 +0300
+Processing by OrdersController#create as HTML
+  Parameters: {"status"=>"Pending", "amount"=>345.45, "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}, "order"=>{"amount"=>345.45, "status"=>"Pending", "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 345.45], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Mtu Muzito\"}"], ["order_detail", "{\"id\":3545,\"name\":\"Nike VaporFly\",\"quantity\":3,\"price\":453.49}"], ["created_at", "2020-11-21 10:43:46.997276"], ["updated_at", "2020-11-21 10:43:46.997276"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.3ms)
+Completed 201 Created in 14ms (Views: 1.9ms | ActiveRecord: 5.4ms | Allocations: 5960)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:44:33.166088"], ["updated_at", "2020-11-21 10:44:33.166088"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders" for 127.0.0.1 at 2020-11-21 13:44:33 +0300
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+No serializer found for resource: #<Order id: 8, amount: 354.5, status: "Pending", customer: {"id"=>2, "name"=>"Marie Curie"}, order_detail: [{"id"=>34, "name"=>"Nike VaporFy", "price"=>344.55, "quantity"=>3}], created_at: "2020-11-21 10:44:33", updated_at: "2020-11-21 10:44:33">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Order::ActiveRecord_Relation (0.91ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 1.1ms | Allocations: 1287)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/orders" for 127.0.0.1 at 2020-11-21 13:44:33 +0300
+Processing by OrdersController#create as HTML
+  Parameters: {"status"=>"Pending", "amount"=>345.45, "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}, "order"=>{"amount"=>345.45, "status"=>"Pending", "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 345.45], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Mtu Muzito\"}"], ["order_detail", "{\"id\":3545,\"name\":\"Nike VaporFly\",\"quantity\":3,\"price\":453.49}"], ["created_at", "2020-11-21 10:44:33.253016"], ["updated_at", "2020-11-21 10:44:33.253016"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.3ms)
+Completed 201 Created in 13ms (Views: 1.6ms | ActiveRecord: 0.8ms | Allocations: 1757)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:44:33.262629"], ["updated_at", "2020-11-21 10:44:33.262629"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/orders/10" for 127.0.0.1 at 2020-11-21 13:44:33 +0300
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.48ms)
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 2.3ms | Allocations: 596)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:49:33.912945"], ["updated_at", "2020-11-21 10:49:33.912945"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/orders" for 127.0.0.1 at 2020-11-21 13:49:33 +0300
+Processing by Api::V1::OrdersController#index as HTML
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+No serializer found for resource: #<Order id: 11, amount: 354.5, status: "Pending", customer: {"id"=>2, "name"=>"Marie Curie"}, order_detail: [{"id"=>34, "name"=>"Nike VaporFy", "price"=>344.55, "quantity"=>3}], created_at: "2020-11-21 10:49:33", updated_at: "2020-11-21 10:49:33">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Order::ActiveRecord_Relation (0.23ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1393)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/orders" for 127.0.0.1 at 2020-11-21 13:49:33 +0300
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:49:34.002891"], ["updated_at", "2020-11-21 10:49:34.002891"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/orders/12" for 127.0.0.1 at 2020-11-21 13:49:34 +0300
+Processing by Api::V1::OrdersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.95ms)
+Completed 200 OK in 11ms (Views: 4.9ms | ActiveRecord: 1.3ms | Allocations: 819)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:49:57.701311"], ["updated_at", "2020-11-21 10:49:57.701311"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/orders" for 127.0.0.1 at 2020-11-21 13:49:57 +0300
+Processing by Api::V1::OrdersController#index as HTML
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+No serializer found for resource: #<Order id: 13, amount: 354.5, status: "Pending", customer: {"id"=>2, "name"=>"Marie Curie"}, order_detail: [{"id"=>34, "name"=>"Nike VaporFy", "price"=>344.55, "quantity"=>3}], created_at: "2020-11-21 10:49:57", updated_at: "2020-11-21 10:49:57">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Order::ActiveRecord_Relation (0.27ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 1393)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+Started POST "/api/v1/orders" for 127.0.0.1 at 2020-11-21 13:49:57 +0300
+Processing by Api::V1::OrdersController#create as HTML
+  Parameters: {"status"=>"Pending", "amount"=>345.45, "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}, "order"=>{"amount"=>345.45, "status"=>"Pending", "customer"=>{"id"=>2, "name"=>"Mtu Muzito"}, "order_detail"=>{"id"=>3545, "quantity"=>3, "name"=>"Nike VaporFly", "price"=>453.49}}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 345.45], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Mtu Muzito\"}"], ["order_detail", "{\"id\":3545,\"name\":\"Nike VaporFly\",\"quantity\":3,\"price\":453.49}"], ["created_at", "2020-11-21 10:49:57.749183"], ["updated_at", "2020-11-21 10:49:57.749183"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (1.25ms)
+Completed 201 Created in 13ms (Views: 4.6ms | ActiveRecord: 1.6ms | Allocations: 1831)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.5ms)[0m  [1m[32mINSERT INTO "orders" ("amount", "status", "customer", "order_detail", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["amount", 354.5], ["status", "Pending"], ["customer", "{\"id\":2,\"name\":\"Marie Curie\"}"], ["order_detail", "[{\"id\":34,\"name\":\"Nike VaporFy\",\"quantity\":3,\"price\":344.55}]"], ["created_at", "2020-11-21 10:49:57.771237"], ["updated_at", "2020-11-21 10:49:57.771237"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/orders/15" for 127.0.0.1 at 2020-11-21 13:49:57 +0300
+Processing by Api::V1::OrdersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.72ms)
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 1.4ms | Allocations: 611)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
