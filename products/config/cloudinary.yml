@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: drj5vvkvr
+  api_key: '593759612285187'
+  api_secret: _6XYHjhMAlmA4PGY3OyHdyMXzzA
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: drj5vvkvr
+  api_key: '593759612285187'
+  api_secret: _6XYHjhMAlmA4PGY3OyHdyMXzzA
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: drj5vvkvr
+  api_key: '593759612285187'
+  api_secret: _6XYHjhMAlmA4PGY3OyHdyMXzzA
+  enhance_image_tag: true
+  static_file_support: false
