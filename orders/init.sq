@@ -1,0 +1,1 @@
+CREATE USER customer_development SUPERUSER;
