@@ -30,11 +30,11 @@ services:
     # used in this container.
     environment:
       RAILS_ENV: development
-      DATABASE_NAME: customer_development
-      DATABASE_USER: customer_development
+      DATABASE_NAME: products_development
+      DATABASE_USER: product_development
       DATABASE_PASSWORD:
-      DATABASE_HOST: database
+      DATABASE_HOST: product-data
 
 # Declare the volumes that our application uses.
 volumes:
-  customer_data:
+  product_data:
