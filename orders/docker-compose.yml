@@ -1,15 +1,17 @@
-version: "3.8"
+version: "3"
 
 services:
 
   database:
     image: postgres:11.5
-
+    networks:
+      - shopnet
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - orderdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   web:
+    container_name: order
     build: .
     volumes:
       - .:/code:cached
@@ -20,11 +22,12 @@ services:
     # Expose port 3000.
     ports:
       - "3000:3000"
-
+    networks:
+      - shopnet
     # Specify that this container depends on the other
     # container which we've called "database".
     depends_on:
-      - database
+      - orderdata
 
     # Specify the values of the environment variables
     # used in this container.
@@ -37,4 +40,6 @@ services:
 
 # Declare the volumes that our application uses.
 volumes:
-  order_data:
+  orderdata:
+networks:
+  shopnet:
